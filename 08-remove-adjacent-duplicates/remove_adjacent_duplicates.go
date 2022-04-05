@@ -15,3 +15,24 @@ func removeDuplicates(s string) string {
 	}
 	return string(stack)
 }
+
+func removeDuplicatesPlace(s []rune) string {
+	ptr := -1
+	size := len(s)
+
+	for pos := 0; pos < size; pos++ {
+		if ptr == -1 || s[ptr] != s[pos] {
+			ptr++
+			s[ptr] = s[pos]
+		} else {
+			ptr--
+		}
+	}
+
+	if ptr == -1 {
+		return ""
+	} else {
+		return string(s[:ptr+1])
+	}
+
+}
