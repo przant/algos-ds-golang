@@ -182,3 +182,37 @@ func TestPrintNumbersAsc(t *testing.T) {
 		buff.Reset()
 	}
 }
+
+func TestNumOfDigits(t *testing.T) {
+	tests := []struct {
+		input int
+		want  int
+	}{
+		{
+			input: 1,
+			want:  1,
+		},
+		{
+			input: 16,
+			want:  2,
+		},
+		{
+			input: 128,
+			want:  3,
+		},
+		{
+			input: 4096,
+			want:  4,
+		},
+		{
+			input: 32768,
+			want:  5,
+		},
+	}
+
+	for _, test := range tests {
+		if got := numOfDigits(test.input); got != test.want {
+			t.Errorf("with input %d, want %d but got %d", test.input, test.want, got)
+		}
+	}
+}
