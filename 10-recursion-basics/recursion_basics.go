@@ -86,3 +86,17 @@ func product(n, m int) int {
 	return smallAns + n
 
 }
+
+func countZeroes(n int) int {
+	if n == 0 {
+		return 0
+	}
+
+	count := countZeroes(n / 10)
+
+	if n%10 == 0 {
+		return count + 1
+	} else {
+		return count
+	}
+}
