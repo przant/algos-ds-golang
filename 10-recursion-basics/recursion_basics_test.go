@@ -35,3 +35,37 @@ func TestFactorial(t *testing.T) {
 		}
 	}
 }
+
+func TestFibonacci(t *testing.T) {
+	tests := []struct {
+		input int
+		want  int
+	}{
+		{
+			input: 1,
+			want:  1,
+		},
+		{
+			input: 2,
+			want:  1,
+		},
+		{
+			input: 3,
+			want:  2,
+		},
+		{
+			input: 5,
+			want:  5,
+		},
+		{
+			input: 6,
+			want:  8,
+		},
+	}
+
+	for _, test := range tests {
+		if got := fibonacci(test.input); got != test.want {
+			t.Errorf("with input %d, want %d but got %d", test.input, test.want, got)
+		}
+	}
+}
