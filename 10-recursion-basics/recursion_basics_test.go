@@ -314,3 +314,37 @@ func TestCountZeroes(t *testing.T) {
 		}
 	}
 }
+
+func TestGeoSum(t *testing.T) {
+	tests := []struct {
+		input int
+		want  float64
+	}{
+		{
+			input: 0,
+			want:  1.0,
+		},
+		{
+			input: 1,
+			want:  1.5,
+		},
+		{
+			input: 2,
+			want:  1.75,
+		},
+		{
+			input: 3,
+			want:  1.875,
+		},
+		{
+			input: 4,
+			want:  1.9375,
+		},
+	}
+
+	for _, test := range tests {
+		if got := geoSum(test.input); got != test.want {
+			t.Errorf("with input %d, want %f but got %f", test.input, test.want, got)
+		}
+	}
+}
