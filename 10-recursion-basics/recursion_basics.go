@@ -3,6 +3,7 @@ package recursion_basics
 import (
 	"fmt"
 	"io"
+	"math"
 )
 
 func factorial(n int) int {
@@ -99,4 +100,14 @@ func countZeroes(n int) int {
 	} else {
 		return count
 	}
+}
+
+func geoSum(k int) float64 {
+	if k == 0 {
+		return 1.0
+	}
+
+	smallAns := geoSum(k - 1)
+
+	return smallAns + (1.0 / math.Pow(2, float64(k)))
 }
