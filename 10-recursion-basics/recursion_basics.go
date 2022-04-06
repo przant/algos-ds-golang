@@ -19,3 +19,13 @@ func fibonacci(n int) int {
 
 	return smallAns
 }
+
+func power(x, n int) int {
+	if n == 0 {
+		return 1
+	}
+
+	smallAns := power(x, n-1)
+
+	return x * smallAns
+}
