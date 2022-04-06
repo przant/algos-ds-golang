@@ -75,3 +75,14 @@ func sumOfDigits(n int) int {
 
 	return smallAns + n%10
 }
+
+func product(n, m int) int {
+	if m == 1 {
+		return n
+	}
+
+	smallAns := product(n, m-1)
+
+	return smallAns + n
+
+}
