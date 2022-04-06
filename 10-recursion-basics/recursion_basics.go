@@ -55,3 +55,13 @@ func printNumbersDesc(n int, w io.Writer) {
 	printNumbersDesc(n-1, w)
 
 }
+
+func numOfDigits(n int) int {
+	if n == 0 {
+		return 0
+	}
+
+	smallAns := numOfDigits(n / 10)
+
+	return smallAns + 1
+}
