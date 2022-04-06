@@ -65,3 +65,13 @@ func numOfDigits(n int) int {
 
 	return smallAns + 1
 }
+
+func sumOfDigits(n int) int {
+	if n == 0 {
+		return 0
+	}
+
+	smallAns := sumOfDigits(n / 10)
+
+	return smallAns + n%10
+}
