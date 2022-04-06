@@ -246,3 +246,37 @@ func TestSumOfDigits(t *testing.T) {
 		}
 	}
 }
+
+func TestProduct(t *testing.T) {
+	tests := []struct {
+		input [2]int
+		want  int
+	}{
+		{
+			input: [2]int{0, 1},
+			want:  0,
+		},
+		{
+			input: [2]int{1, 1},
+			want:  1,
+		},
+		{
+			input: [2]int{5, 2},
+			want:  10,
+		},
+		{
+			input: [2]int{7, 8},
+			want:  56,
+		},
+		{
+			input: [2]int{9, 9},
+			want:  81,
+		},
+	}
+
+	for _, test := range tests {
+		if got := product(test.input[0], test.input[1]); got != test.want {
+			t.Errorf("with input %v, want %d but got %d", test.input, test.want, got)
+		}
+	}
+}
