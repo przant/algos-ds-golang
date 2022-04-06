@@ -216,3 +216,33 @@ func TestNumOfDigits(t *testing.T) {
 		}
 	}
 }
+
+func TestSumOfDigits(t *testing.T) {
+	tests := []struct {
+		input int
+		want  int
+	}{
+		{
+			input: 0,
+			want:  0,
+		},
+		{
+			input: 8,
+			want:  8,
+		},
+		{
+			input: 123,
+			want:  6,
+		},
+		{
+			input: 12345,
+			want:  15,
+		},
+	}
+
+	for _, test := range tests {
+		if got := sumOfDigits(test.input); got != test.want {
+			t.Errorf("with input %d, want %d but got %d", test.input, test.want, got)
+		}
+	}
+}
