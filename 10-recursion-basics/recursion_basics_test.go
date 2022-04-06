@@ -280,3 +280,37 @@ func TestProduct(t *testing.T) {
 		}
 	}
 }
+
+func TestCountZeroes(t *testing.T) {
+	tests := []struct {
+		input int
+		want  int
+	}{
+		{
+			input: 1,
+			want:  0,
+		},
+		{
+			input: 10,
+			want:  1,
+		},
+		{
+			input: 12345,
+			want:  0,
+		},
+		{
+			input: 10000,
+			want:  4,
+		},
+		{
+			input: 10320,
+			want:  2,
+		},
+	}
+
+	for _, test := range tests {
+		if got := countZeroes(test.input); got != test.want {
+			t.Errorf("with input %d, want %d but gopt %d", test.input, test.want, got)
+		}
+	}
+}
