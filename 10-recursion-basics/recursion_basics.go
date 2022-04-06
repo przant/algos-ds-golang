@@ -1,5 +1,10 @@
 package recursion_basics
 
+import (
+	"fmt"
+	"io"
+)
+
 func factorial(n int) int {
 	if n <= 1 {
 		return 1
@@ -28,4 +33,25 @@ func power(x, n int) int {
 	smallAns := power(x, n-1)
 
 	return x * smallAns
+}
+
+func printNumbersAsc(n int, w io.Writer) {
+	if n == 0 {
+		return
+	}
+
+	printNumbersAsc(n-1, w)
+
+	fmt.Fprintf(w, "%d", n)
+}
+
+func printNumbersDesc(n int, w io.Writer) {
+	if n == 0 {
+		return
+	}
+
+	fmt.Fprintf(w, "%d", n)
+
+	printNumbersDesc(n-1, w)
+
 }
